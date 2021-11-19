@@ -76,7 +76,7 @@ class BeerControllerTest {
 
     BeerDto getValidBeerDto(){
         return BeerDto.builder()
-                .beerName("My Beer")
+                .beerName("My Beer 2")
                 .beerStyle(BeerStyleEnum.ALE)
                 .price(new BigDecimal("2.99"))
                 .upc(BeerLoader.BEER_1_UPC)
