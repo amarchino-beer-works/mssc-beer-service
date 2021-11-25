@@ -11,6 +11,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 
+  <groupId>amarchino.beer.works</groupId>
 	<artifactId>mssc-beer-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>mssc-beer-service</name>
