@@ -4,7 +4,7 @@ import java.util.UUID;
 
 import org.springframework.data.domain.PageRequest;
 
-import guru.springframework.msscbeerservice.web.model.BeerDto;
+import guru.sfg.common.events.BeerDto;
 import guru.springframework.msscbeerservice.web.model.BeerPagedList;
 import guru.springframework.msscbeerservice.web.model.BeerStyleEnum;
 
