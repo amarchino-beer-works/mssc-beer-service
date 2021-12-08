@@ -25,8 +25,8 @@ spring:
         dialect: org.hibernate.dialect.MySQL8Dialect
 logging:
   level:
-    '[org,hibernate.SQL]': DEBUG
-    '[com.zaxxer.hikari.HikariConfig]': DEBUG
-    '[org.hibernate.type.descriptor.sql.BasicBinder]': TRACE
+#    '[org,hibernate.SQL]': DEBUG
+#    '[com.zaxxer.hikari.HikariConfig]': DEBUG
+#    '[org.hibernate.type.descriptor.sql.BasicBinder]': TRACE
     '[guru.springframework.msscbeerservice]': DEBUG
     
