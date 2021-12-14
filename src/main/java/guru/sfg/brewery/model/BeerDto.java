@@ -1,4 +1,4 @@
-package guru.sfg.common.events;
+package guru.sfg.brewery.model;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -13,7 +13,6 @@ import javax.validation.constraints.Positive;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
-import guru.springframework.msscbeerservice.web.model.BeerStyleEnum;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
