@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import guru.sfg.brewery.model.BeerDto;
 import guru.sfg.brewery.model.events.BrewBeerEvent;
 import guru.sfg.brewery.model.events.NewInventoryEvent;
-import guru.springframework.msscbeerservice.config.JmsConfig;
+import guru.sfg.brewery.util.JmsQueues;
 import guru.springframework.msscbeerservice.domain.Beer;
 import guru.springframework.msscbeerservice.repositories.BeerRepository;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +22,7 @@ public class BrewBeerListener {
 	private final JmsTemplate jmsTemplate;
 
 	@Transactional
-	@JmsListener(destination = JmsConfig.BREWING_REQUEST_QUEUE)
+	@JmsListener(destination = JmsQueues.BREWING_REQUEST_QUEUE)
 	public void listen(BrewBeerEvent event) {
 		BeerDto beerDto = event.getBeerDto();
 		Beer beer = beerRepository.getById(beerDto.getId());
@@ -30,6 +30,6 @@ public class BrewBeerListener {
 		
 		NewInventoryEvent newInventoryEvent = new NewInventoryEvent(beerDto);
 		log.debug("Brewed beer " + beer.getMinOnHand() + " : Quantity on hand: " + beerDto.getQuantityOnHand());
-		jmsTemplate.convertAndSend(JmsConfig.NEW_INVENTORY_QUEUE, newInventoryEvent);
+		jmsTemplate.convertAndSend(JmsQueues.NEW_INVENTORY_QUEUE, newInventoryEvent);
 	}
 }

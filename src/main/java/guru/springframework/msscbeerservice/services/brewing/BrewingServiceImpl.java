@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import guru.sfg.brewery.model.events.BrewBeerEvent;
-import guru.springframework.msscbeerservice.config.JmsConfig;
+import guru.sfg.brewery.util.JmsQueues;
 import guru.springframework.msscbeerservice.domain.Beer;
 import guru.springframework.msscbeerservice.repositories.BeerRepository;
 import guru.springframework.msscbeerservice.services.inventory.BeerInventoryService;
@@ -32,7 +32,7 @@ public class BrewingServiceImpl implements BrewingService {
 			log.debug("Min on hand is " + beer.getMinOnHand());
 			log.debug("Inventory is " + inventoryQuantityOnHand);
 			if(beer.getMinOnHand().compareTo(inventoryQuantityOnHand) >= 0) {
-				jmsTemplate.convertAndSend(JmsConfig.BREWING_REQUEST_QUEUE, new BrewBeerEvent(beerMapper.beerToBeerDto(beer)));
+				jmsTemplate.convertAndSend(JmsQueues.BREWING_REQUEST_QUEUE, new BrewBeerEvent(beerMapper.beerToBeerDto(beer)));
 			}
 		});
 	}
