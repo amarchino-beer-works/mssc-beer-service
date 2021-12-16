@@ -24,6 +24,5 @@ public class BeerOrderValidationListener {
 			.orderId(validateOrderRequest.getBeerOrderDto().getId())
 			.valid(valid)
 			.build());
-		
 	}
 }
